@@ -1,0 +1,6 @@
+flask
+flask_session
+gunicorn
+sqlalchemy
+google-cloud-speech
+boto3
