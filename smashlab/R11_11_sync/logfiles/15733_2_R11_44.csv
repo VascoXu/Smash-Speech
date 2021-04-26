@@ -1,0 +1,28 @@
+Absolute Time,Relative Time,Action
+1:57:32,N/A,Experimenter Ready
+1:57:33,N/A,Participant Ready
+1:58:05,00:00:00,Procedure started.
+1:58:07,00:00:02,P1: Please use a paper towel and spray bottle to clean the counter.
+1:58:39,00:00:34,P1Q1: Why do I need to clean the counter?
+1:58:49,00:00:44,P1Q2: Where is the trashcan?
+1:58:58,00:00:53,P2: Wash your hands with soap and water.
+1:59:14,00:01:09,P3: Place the bag of supplies on the clean counter.
+1:59:23,00:01:18,P4: Remove the gauze covering your fake wound.
+1:59:36,00:01:30,P4Q1: Where should I put the gauze?
+1:59:46,00:01:41,P5: Gently wash the fake wound with soap and water.
+1:59:53,00:01:47,P5Q1: How should I wash my wound?
+2:00:00,00:01:55,P6: Great. Note that at home you will wash the wound in the shower. Let's continue.
+2:00:08,00:02:03,P8: Pat the wound dry with the new gauze pad.
+2:00:25,00:02:20,P9: Cut the Telfa non-stick dressing.
+2:00:35,00:02:30,P9: Cut the Telfa non-stick dressing.
+2:00:41,00:02:36,P9Q1: How should I cut the dressing?/What size do I cut the dressing?
+2:01:21,00:03:16,P10: Open the Vaseline.
+2:01:31,00:03:26,P11Q2: How thick of a layer/How much Vaseline?
+2:01:37,00:03:31,P11Q1: Can I use my finger?
+2:01:44,00:03:39,"P11: Using two Q tips, spread a thick layer of Vaseline onto the wound."
+2:02:01,00:03:56,P12: Cover the wound with the non-stick dressing and secure the dressing with tape.
+2:02:07,00:04:02,P12Q1: How much tape should I use?
+2:02:39,00:04:34,P13: Please throw away the supply bag and any trash.
+2:02:45,00:04:40,P13Q1: Where should I throw them away?
+2:02:51,00:04:46,P14: All of the steps are complete. Thank you for your participation.
+2:03:27,00:05:22,Procedure ended.

@@ -1,0 +1,10 @@
+html, body
+{
+    height: 100%;
+}
+
+#msg-list
+{
+    height: 100;
+    overflow: auto;
+}
