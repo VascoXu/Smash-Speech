@@ -53,8 +53,10 @@ with col1:
         comp_file = [files for files in audio_dir if "computer" in files and files.endswith(".txt")]
         
         # Check confidence
-        if confidence:
+        if confidence and source != "Amazon":
             comp_file = [files for files in comp_file if "conf" in files]
+        else:
+            comp_file = [files for files in comp_file if "conf" not in files]
         
         comp_file = comp_file[0]
 
@@ -67,13 +69,7 @@ with col1:
         # Find files in directory
         audio_dir = glob(f"smashlab/{option}/amazon/*")
 
-        comp_file = [files for files in audio_dir if "amazon" in files and source.lower() in files and files.endswith(".txt")]
-        
-        # Check confidence
-        if confidence:
-            comp_file = [files for files in comp_file if "conf" in files]
-
-        comp_file = comp_file[0]
+        comp_file = [files for files in audio_dir if "amazon" in files and source.lower() in files and files.endswith(".txt")][0]
 
         with open(comp_file, "r") as f:
             st.write(f.read())
@@ -85,8 +81,10 @@ with col2:
         watch_file = [files for files in audio_dir if "watch" in files and files.endswith(".txt")]
 
         # Check confidence
-        if confidence:
+        if confidence and source != "Amazon":
             watch_file = [files for files in watch_file if "conf" in files]
+        else:
+            watch_file = [files for files in watch_file if "conf" not in files]
 
         watch_file = watch_file[0]
 
@@ -104,6 +102,8 @@ with col2:
         # Check confidence
         if confidence:
             comp_file = [files for files in comp_file if "conf" in files]
+        else:
+            comp_file = [files for files in comp_file if "conf" not in files]
 
         comp_file = comp_file[0]
 
