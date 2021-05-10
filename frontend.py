@@ -5,6 +5,7 @@ import pandas as pd
 from glob import glob
 from datetime import datetime, date, timedelta
 
+from functools import cmp_to_key
 
 # Set settings for app
 st.set_page_config(layout="wide")
@@ -39,10 +40,27 @@ else:
     )   
 
 # Confidence checkbox
-confidence = st.checkbox("Display confidence?")
+# confidence = st.checkbox("Display confidence?")
 
 # Find files in directory
 audio_dir = glob(f"smashlab/{option}/{source.lower()}/*")
+
+# Custom compare 
+def compare(s1, s2):
+    base1 = os.path.basename(s1)
+    base1 = os.path.splitext(base1)[0]
+
+    base2 = os.path.basename(s2)
+    base2 = os.path.splitext(base2)[0]
+
+    num1= base1.split("_")
+    num1 = num1[len(num1)-1]
+
+    num2= base2.split("_")
+    num2 = num2[len(num2)-1]
+
+    return int(num1) - int(num2)
+
 
 # Display side-by-side 
 col1, col2 = st.beta_columns(2)
@@ -50,65 +68,68 @@ with col1:
     if comparison == "Audio sources":
         # Compare audio sources
         col1.header("Computer Transcription")
-        comp_file = [files for files in audio_dir if "computer" in files and files.endswith(".txt")]
-        
-        # Check confidence
-        if confidence and source != "Amazon":
-            comp_file = [files for files in comp_file if "conf" in files]
-        else:
-            comp_file = [files for files in comp_file if "conf" not in files]
-        
-        comp_file = comp_file[0]
 
-        with open(comp_file, "r") as f:
-            st.write(f.read())
+        # Find files in directory
+        audio_dir = glob(f"smashlab/{option}/{source.lower()}/computer/*")
+        transcriptions = sorted(audio_dir, key=cmp_to_key(compare))
+        
+        writing = ""
+        index = 0
+        for transcription in transcriptions:
+            with open(transcription) as f:
+                writing += f"{index}: {f.read()} \n\n"
+            index += 1
+        st.write(writing)
+
     else:
         # Compare transcription sources
         col1.header("Amazon")
 
         # Find files in directory
-        audio_dir = glob(f"smashlab/{option}/amazon/*")
-
-        comp_file = [files for files in audio_dir if "amazon" in files and source.lower() in files and files.endswith(".txt")][0]
-
-        with open(comp_file, "r") as f:
-            st.write(f.read())
+        audio_dir = glob(f"smashlab/{option}/amazon/{source.lower()}/*")
+        transcriptions = sorted(audio_dir, key=cmp_to_key(compare))
+        
+        writing = ""
+        index = 0
+        for transcription in transcriptions:
+            with open(transcription) as f:
+                writing += f"{index}: {f.read()} \n\n"
+            index += 1
+        st.write(writing)
 
 with col2:
     if comparison == "Audio sources":
         # Compare audio sources
         col2.header("Watch Transcription")
-        watch_file = [files for files in audio_dir if "watch" in files and files.endswith(".txt")]
+        
+        # Find files in directory
+        audio_dir = glob(f"smashlab/{option}/{source.lower()}/watch/*")
+        transcriptions = sorted(audio_dir, key=cmp_to_key(compare))
+        
+        writing = ""
+        index = 0
+        for transcription in transcriptions:
+            with open(transcription) as f:
+                writing += f"{index}: {f.read()} \n\n"
+            index += 1
+        st.write(writing)
 
-        # Check confidence
-        if confidence and source != "Amazon":
-            watch_file = [files for files in watch_file if "conf" in files]
-        else:
-            watch_file = [files for files in watch_file if "conf" not in files]
-
-        watch_file = watch_file[0]
-
-        with open(watch_file, "r") as f:
-            st.write(f.read())
     else:
         # Compare transcription sources
         col2.header("Google")
 
         # Find files in directory
-        audio_dir = glob(f"smashlab/{option}/google/*")
+        audio_dir = glob(f"smashlab/{option}/google/{source.lower()}/*")
+        transcriptions = sorted(audio_dir, key=cmp_to_key(compare))
+        
+        writing = ""
+        index = 0
+        for transcription in transcriptions:
+            with open(transcription) as f:
+                writing += f"{index}: {f.read()} \n\n"
+            index += 1
+        st.write(writing)
 
-        comp_file = [files for files in audio_dir if "google" in files and source.lower() in files and files.endswith(".txt")]
-
-        # Check confidence
-        if confidence:
-            comp_file = [files for files in comp_file if "conf" in files]
-        else:
-            comp_file = [files for files in comp_file if "conf" not in files]
-
-        comp_file = comp_file[0]
-
-        with open(comp_file, "r") as f:
-            st.write(f.read())
 
 # Display computer audio
 # audio_dir = glob(f"smashlab/{option}/*")
