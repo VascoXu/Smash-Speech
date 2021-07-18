@@ -1,0 +1,25 @@
+Absolute Time,Relative Time,Action
+9:31:20,N/A,Experimenter Ready
+9:31:23,N/A,Participant Ready
+9:32:47,00:00:00,Procedure started.
+9:32:49,00:00:02,P1: Please use a paper towel and spray bottle to clean the counter.
+9:33:40,00:00:52,P2: Wash your hands with soap and water.
+9:34:25,00:01:38,P3: Place the bag of supplies on the clean counter.
+9:34:31,00:01:44,P4: Take the trash bag out of the supply bag and set it nearby.
+9:34:52,00:02:04,P5: Remove the gauze and gently wash the wound with soap and water.
+9:36:25,00:03:37,P6: Great. Note that at home you will wash the wound in the shower. Let's continue.
+9:36:33,00:03:46,P7: Pat the wound dry with a new gauze pad.
+9:37:27,00:04:40,P7Q: Unanswerable
+9:37:31,00:04:43,P7Q: Unanswerable
+9:37:58,00:05:11,P8: Cut the non-stick dressing.
+9:38:04,00:05:17,P8: Cut the non-stick dressing.
+9:38:23,00:05:36,P8Q2: Which of the supplies is the nonstick dressing?
+9:38:35,00:05:48,P8Q: Unanswerable
+9:39:10,00:06:23,P8: Cut the non-stick dressing.
+9:39:19,00:06:31,P8: Cut the non-stick dressing.
+9:39:25,00:06:37,P8Q: Unanswerable
+9:39:53,00:07:06,P9: Open the Vaseline.
+9:40:04,00:07:16,"P10: Using two Q tips, spread a thick layer of Vaseline onto the non-stick dressing."
+9:40:35,00:07:48,P11: Cover the wound with the non-stick dressing and secure the dressing with tape.
+9:41:48,00:09:00,P12: All of the steps are complete. Thank you for your participation.
+9:41:57,00:09:09,Procedure ended.

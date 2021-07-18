@@ -67,13 +67,14 @@ def parse_amazon(aws_url, audio_dir, filepath):
 
 def google_speech(audio_dir, url):
     """Transcribe audio using Google Speech-To-Text"""
-
+    # print(url)
     try:
+        
         audio = AudioSegment.from_wav(url)
         duration = audio.duration_seconds
         if duration == 0:
             return
-
+        
         gcs_uri = f"gs://{url}"
         client = speech.SpeechClient()
         audio = speech.RecognitionAudio(uri=gcs_uri)
@@ -92,6 +93,7 @@ def google_speech(audio_dir, url):
 
         # iterate through transcription result
         transcription = ""
+        #print(response.results)
         for index, result in enumerate(response.results):
             transcript = result.alternatives[0].transcript
             confidence = round(float(result.alternatives[0].confidence), 2)
@@ -105,11 +107,13 @@ def google_speech(audio_dir, url):
         num = basename.split("_")
         num = num[len(num)-1]
         filename = f"{audio_dir}/google/{source}/{basename}_google_{num}.txt"
+        # filename = f"mohs_study/r05_32_sync_Rachel/Google.txt"
+        # filename = f"{audio_dir}/google/computer/{basename}_google_{num}.txt"
         with open(filename, "w+") as f:
             f.write(transcription)
     
-    except:
-        pass
+    except Exception as e:
+        print(e)
 
 def timestring_to_seconds(s):
     h, m, s = [int(i) for i in s.split(':')]
@@ -141,7 +145,7 @@ def transcribe():
     """Script to trascribe Smash audio files"""
 
     """
-    audio_dirs = glob("../smashlab/*")
+    audio_dirs = glob("mohs_study/*")
     for audio_dir in audio_dirs:
         audio_files = glob(f"{audio_dir}/*.wav")
         logfile = glob(f"{audio_dir}/logfiles/*.csv")
@@ -157,24 +161,54 @@ def transcribe():
                 # pass
                 # amazon_speech(audio_file)
     """
-
-    audio_dirs = glob("smashlab/*")
+    """
+    audio_dirs = glob("mohs_study/*")
     for audio_dir in audio_dirs:
+        #print(audio_dir)
         comp_files = glob(f"{audio_dir}/parts/computer/*")
         watch_files = glob(f"{audio_dir}/parts/watch/*")
-
+        
         # computer files
         for audio_file in comp_files:
             if "r06_32_manual" not in audio_file:
                 if audio_file.endswith(".wav"):
                     pass
                     # amazon_speech(audio_dir, audio_file)
-
+        
         # watch files
         for audio_file in watch_files:
             if audio_file.endswith(".wav"):
                 if "r06_32_manual" not in audio_file:
-                    amazon_speech(audio_dir, audio_file)
+                    print (audio_file)
+                    #google_speech(audio_dir, audio_file)
+    """
+                    
+    
+    
+    # audio_dir = glob("mohs_study/r05_32_sync_Rachel/*")
+    comp_files = glob("mohs_study/R004_15_no_sync_computer_only/parts/computer/*")
+    watch_files = glob("mohs_study/R004_15_no_sync_computer_only/parts/watch/*")
+    
+    # computer files
+    for audio_file in comp_files:
+        if audio_file.endswith(".wav"):
+            x = audio_file.find("\\")
+            new_audio_file = audio_file[:x] + "/" + audio_file[x+1:]
+            print(new_audio_file)
+            google_speech("mohs_study/R004_15_no_sync_computer_only/", new_audio_file)
+            
+    
+    # watch files
+    for audio_file in watch_files:
+        if audio_file.endswith(".wav"):
+            x = audio_file.find("\\")
+            new_audio_file = audio_file[:x] + "/" + audio_file[x+1:]
+            print(new_audio_file)
+            google_speech("mohs_study/R47_91_sync/", new_audio_file)
+    
+
+    # google_speech("mohs_study/r05_32_sync_Rachel/", "mohs_study/r05_32_sync_Rachel/parts/computer/r05_32_computer_sync_0.wav")
+    # split_audio("mohs_study/R47_91_sync/", "mohs_study/R47_91_sync/R47_91_computer.wav", "mohs_study/R47_91_sync/logfiles/92151_001_R47_91.csv")
 
         # basename = os.path.basename(audio_file)
         # basename = os.path.splitext(basename)[0]

@@ -1,0 +1,23 @@
+Absolute Time,Relative Time,Action
+9:19:42,N/A,Experimenter Ready
+9:21:51,N/A,Participant Ready
+9:22:39,00:00:00,Procedure started.
+9:22:41,00:00:02,P1: Please use a paper towel and spray bottle to clean the counter.
+9:23:03,00:00:24,P2: Wash your hands with soap and water.
+9:23:36,00:00:58,P3: Place the bag of supplies on the clean counter.
+9:23:47,00:01:09,P4: Remove the gauze covering your fake wound.
+9:23:56,00:01:17,P5: Gently wash the fake wound with soap and water.
+9:24:38,00:01:59,P6: Great. Note that at home you will wash the wound in the shower. Let's continue.
+9:24:45,00:02:07,P7: Remove a new gauze pad and the Telfa non-stick dressing from the supply bag.
+9:25:25,00:02:46,P8: Pat the wound dry with the new gauze pad.
+9:25:34,00:02:56,P8Q: Unanswerable
+9:25:41,00:03:03,P9: Open the Telfa non-stick dressing and cut it to a size that will cover the wound.
+9:25:55,00:03:16,P9Q1: How should I cut the dressing?/What size do I cut the dressing?
+9:26:16,00:03:37,P10: Open the Vaseline.
+9:26:28,00:03:50,"P11: Using two Q tips, spread a thick layer of Vaseline onto the wound."
+9:26:43,00:04:04,P12: Cover the wound with the Telfa non-stick dressing and secure the dressing with tape.
+9:27:01,00:04:23,P12Q: Unanswerable
+9:27:45,00:05:06,P13: Please throw away the supply bag and any trash.
+9:28:15,00:05:37,P13Q: Unanswerable
+9:28:20,00:05:41,P14: All of the steps are complete. Thank you for your participation.
+9:28:25,00:05:47,Procedure ended.
